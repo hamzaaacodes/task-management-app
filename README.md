@@ -15,11 +15,11 @@ This is a Task Management Application built using the MERN stack (MongoDB, Expre
 # Installation
 
 Clone the repository:
-git clone https://github.com/hamzaacodes/task-management-app.git
+* git clone https://github.com/hamzaacodes/task-management-app.git
 
 
 Navigate to the project directory:
-cd task-management-app
+* cd task-management-app
 
 Install backend dependencies:
 1. cd server
