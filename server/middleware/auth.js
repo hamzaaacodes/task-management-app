@@ -1,0 +1,18 @@
+const jwt = require("jsonwebtoken");
+const key = process.env.SECRET_KEY;
+
+const auth = (request, response, next) => {
+  const token = request.header("Auth-token");
+  if (!token) {
+    response.send("Error");
+  }
+  const data = jwt.verify(token, key);
+  // if(!data){
+  //   response.send("Invalid Token");
+  // }else{
+    request = data;
+  // }
+  next();
+};
+
+module.exports = auth;
