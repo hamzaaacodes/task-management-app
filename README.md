@@ -22,22 +22,22 @@ Navigate to the project directory:
 cd task-management-app
 
 Install backend dependencies:
-cd server
-npm install
+1. cd server
+2. npm install
 
 Install frontend dependencies:
-cd client
-npm install
+1. cd client
+2. npm install
 
 # Usage:
 Start the backend server:
-cd server
-npm start
+1. cd server
+2. npm start
 The backend server will run on http://localhost:5000.
 
 Start the frontend development server:
-cd client
-npm start
+1. cd client
+2. npm start
 The frontend development server will run on http://localhost:3000.
 
 Open your browser and navigate to http://localhost:3000 to access the Task Management Application.
