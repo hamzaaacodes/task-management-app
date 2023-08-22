@@ -33,11 +33,11 @@ Install frontend dependencies:
 Start the backend server:
 1. cd server
 2. npm start
-The backend server will run on http://localhost:5000.
+* The backend server will run on http://localhost:5000.
 
 Start the frontend development server:
 1. cd client
 2. npm start
-The frontend development server will run on http://localhost:3000.
+* The frontend development server will run on http://localhost:3000.
 
 Open your browser and navigate to http://localhost:3000 to access the Task Management Application.
