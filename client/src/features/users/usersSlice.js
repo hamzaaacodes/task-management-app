@@ -1,12 +1,11 @@
 import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-
 const initialState = {
-  userId:  null,
-  userFullName: "",
-  token:  {},
-  isLoggedIn: false,
+  userId: localStorage.getItem("userId"),
+  userFullName: localStorage.getItem("userFullName"),
+  token: localStorage.getItem("token"),
+  isLoggedIn: localStorage.getItem("isLoggedIn"),
   isLoading: false,
   isError: false,
   isSuccess: false,
@@ -43,13 +42,14 @@ export const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
-    removeLocalStorage: () => {
+    logOut: () => {
+      localStorage.clear();
     },
     reset: () => initialState,
   },
   extraReducers: (builder) => {
     builder
-    // Log In
+      // Log In
       .addCase(logIn.pending, (state) => {
         state.isLoading = true;
         state.isSuccess = false;
@@ -63,6 +63,11 @@ export const usersSlice = createSlice({
         state.userId = action.payload.userId;
         state.token = action.payload.token;
         state.isLoggedIn = action.payload.success;
+        // Store in local storage.
+        localStorage.setItem("userId", `${action.payload.userId}`);
+        localStorage.setItem("userFullName", `${action.payload.name}`);
+        localStorage.setItem("token", `${action.payload.token}`);
+        localStorage.setItem("isLoggedIn", `${action.payload.success}`);
       })
       .addCase(logIn.rejected, (state, action) => {
         state.isLoading = false;
@@ -72,6 +77,6 @@ export const usersSlice = createSlice({
   },
 });
 
-export const { reset,removeLocalStorage } = usersSlice.actions;
+export const { reset, logOut } = usersSlice.actions;
 
 export default usersSlice.reducer;

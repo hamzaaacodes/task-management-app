@@ -6,7 +6,7 @@ import Container from "react-bootstrap/esm/Container";
 import { useDispatch, useSelector } from "react-redux";
 import {
   logIn,
-  removeLocalStorage,
+  logOut,
   reset,
 } from "../../features/users/usersSlice";
 import { Link, useNavigate } from "react-router-dom";
@@ -15,11 +15,10 @@ import { toast } from "react-toastify";
 function LogIn() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const token = useSelector((state) => state.users.token);
   const { isSuccess, isError, message } = useSelector((state) => state.users);
 
   useEffect(() => {
-    dispatch(removeLocalStorage());
+    dispatch(logOut());
     dispatch(reset());
     // }
   }, []);

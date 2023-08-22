@@ -7,11 +7,7 @@ const auth = (request, response, next) => {
     response.send("Error");
   }
   const data = jwt.verify(token, key);
-  // if(!data){
-  //   response.send("Invalid Token");
-  // }else{
     request = data;
-  // }
   next();
 };
 
