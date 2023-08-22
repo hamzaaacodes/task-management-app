@@ -42,8 +42,13 @@ export const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
-    logOut: () => {
+    logOut: (state) => {
       localStorage.clear();
+      state.userFullName = "";
+      state.userId = null;
+      state.token = {};
+      state.isSuccess = false;
+      state.isLoggedIn = false;
     },
     reset: () => initialState,
   },

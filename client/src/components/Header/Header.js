@@ -2,10 +2,13 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, Navigate, useNavigate } from "react-router-dom";
+import { logOut } from "../../features/users/usersSlice";
 
 function Header() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { isLoggedIn, userFullName } = useSelector((state) => state.users);
 
   return (
@@ -50,9 +53,9 @@ function Header() {
             ) : (
               <>
                 <div>{userFullName}</div>
-                <NavLink to="/login" title="Log-out">
+                <Nav.Link onClick={()=>{dispatch(logOut()); navigate("/login")}}  title="Log-out">
                   <i className="fa-solid fa-right-from-bracket fa-xl" />
-                </NavLink>
+                </Nav.Link>
               </>
             )}
           </Form>

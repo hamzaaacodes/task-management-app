@@ -8,7 +8,7 @@ const key = process.env.SECRET_KEY;
 
 // Get token
 const getToken = (id) => {
-  var token = jwt.sign({ id }, key);
+  var token = jwt.sign({ id }, key,{expiresIn:"12h"});
   return token;
 };
 

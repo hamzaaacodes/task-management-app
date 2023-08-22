@@ -6,7 +6,7 @@ function Home() {
   return (
     <>
       <Container className="my-4">
-        <h1 className="my-3">App Description</h1>
+        <h2>App Description</h2>
         <p>
           This is a Task Management Application built using the MERN stack
           (MongoDB, Express, React, Node.js). The application allows users to
@@ -36,11 +36,13 @@ function Home() {
         <ul>
           <li>
             <b>Step 1: </b>
-            <Link to={"/signup"}>Create an account.</Link>
+            Create an account.
+            <Link to={"/signup"}> (Click here)</Link>
           </li>
           <li>
             <b>Step 2: </b>
-            <Link to={"/login"}>Log In to the app.</Link>
+            Log In to the app.
+            <Link to={"/login"}> (Click here)</Link>
           </li>
           <li>
             <b>Step 3: </b>

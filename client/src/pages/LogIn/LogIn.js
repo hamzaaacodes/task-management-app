@@ -15,13 +15,11 @@ import { toast } from "react-toastify";
 function LogIn() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isSuccess, isError, message } = useSelector((state) => state.users);
+  const { isSuccess, isError, message,isLoggedIn } = useSelector((state) => state.users);
 
   useEffect(() => {
-    dispatch(logOut());
-    dispatch(reset());
-    // }
-  }, []);
+      dispatch(logOut());
+  }, [dispatch]);
 
   const credentialsTemplate = {
     email: "",
